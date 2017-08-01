@@ -41,7 +41,7 @@ mongo.connect('mongodb://127.0.0.1/mongochat', function (err, db) {
             else{
                 // Insert message
                 chat.insert({name:name,message:message}, function () {
-                    socket.emit('output', [data]);
+                    client.emit('output', [data]);
 
                     // Send status object
                     sendStatus({
